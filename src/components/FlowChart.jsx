@@ -95,8 +95,11 @@ const FlowChart = () => {
         (node) => node.id === selectedNode[0].id
       );
       const restOfNodes = _initialNodes.slice(0, 6);
-      console.log(restOfNodes);
-      setInitialNodes([firstNode]);
+      setInitialNodes([
+        firstNode,
+        ...restOfNodes,
+        ...selectedNodeChildren[0].subChildren,
+      ]);
     }
 
     // switch(){
