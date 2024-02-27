@@ -92,7 +92,6 @@ const FlowCopy = () => {
   ];
 
   const _initialEdges = [
-    { id: "el-1", source: "1", target: "1" },
     { id: "el-2", source: "1", target: "2" },
     { id: "el-3", source: "1", target: "3" },
     { id: "el-4", source: "1", target: "4" },
@@ -151,7 +150,7 @@ const FlowCopy = () => {
           allSubChildrenTwo
         );
 
-        setInitialEdges(newEdges);
+        setInitialEdges(newEdges.slice(1));
         setInitialNodes(allNodesAndSubChildren);
       }
     }
