@@ -5,8 +5,6 @@ import ReactFlow, { Controls } from "reactflow";
 import React from "react";
 
 const FlowChart = () => {
-  const containerRef = React.useRef();
-
   const firstNode = {
     id: "1",
     position: { x: 300, y: 0 },
@@ -59,18 +57,6 @@ const FlowChart = () => {
   ];
 
   const [initialNodes, setInitialNodes] = React.useState(_initialNodes);
-  //   const [offSetWidth, setOffSetWidth] = React.useState(0);
-
-  React.useEffect(() => {
-    const handleResize = () => {
-      if (containerRef?.current) {
-        // setOffSetWidth(containerRef.current.offsetWidth);
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   const initialEdges = [
     { id: "e1-1", source: "1", target: "2" },
@@ -83,41 +69,30 @@ const FlowChart = () => {
     { id: "el-8", source: "2", target: "13" },
   ];
 
-  React.useEffect(() => {
-    // set b to initial nodes
-    // setInitialNodes([])
-  }, []);
-
   const onNodesChange = (nodesArray) => {
     if (nodesArray[0].type === "select") {
+      //
       const selectedNode = nodesArray.filter((node) => node.selected);
       const selectedNodeChildren = initialNodes.filter(
         (node) => node.id === selectedNode[0].id
       );
+
       const restOfNodes = _initialNodes.slice(0, 6);
+
       setInitialNodes([
         firstNode,
         ...restOfNodes,
         ...selectedNodeChildren[0].subChildren,
       ]);
     }
-
-    // switch(){
-
-    // }
-  };
-
-  const onEdgesChange = () => {
-    console.log("Edges clicked");
   };
 
   return (
-    <div style={{ width: "100vw", height: "100vh" }} ref={containerRef}>
+    <div style={{ width: "100vw", height: "100vh" }}>
       <ReactFlow
         nodes={initialNodes}
         edges={initialEdges}
         onNodesChange={onNodesChange}
-        onEdgesChange={onEdgesChange}
       >
         <Controls />
       </ReactFlow>

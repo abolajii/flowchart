@@ -1,10 +1,9 @@
-import FlowChart from "./components/FlowChart";
-import React from "react";
+import FlowCopy from "./components/FlowCopy";
 
 const App = () => {
   return (
     <div>
-      <FlowChart />
+      <FlowCopy />
     </div>
   );
 };
