@@ -97,9 +97,23 @@ const FlowCopy = () => {
     { id: "el-3", source: "1", target: "3" },
     { id: "el-4", source: "1", target: "4" },
     { id: "el-5", source: "1", target: "5" },
+    { id: "el-6", source: "2", target: "6" },
+    { id: "el-7", source: "2", target: "7" },
+    { id: "el-8", source: "2", target: "8" },
+    { id: "el-9", source: "6", target: "18" },
+    { id: "el-10", source: "6", target: "19" },
+    { id: "el-11", source: "6", target: "20" },
   ];
 
-  const [initialNodes, setInitialNodes] = React.useState(allNodes);
+  // Extract sub-children of B
+  const subChildrenOfB =
+    allNodes.find((node) => node.id === "2")?.subChildren || [];
+  const subChildrenTwoOfB1 =
+    subChildrenOfB.find((node) => node.id === "6")?.subChildrenTwo || [];
+
+  const _initialNodes = [...allNodes, ...subChildrenOfB, ...subChildrenTwoOfB1];
+
+  const [initialNodes, setInitialNodes] = React.useState(_initialNodes);
   const [initialEdges, setInitialEdges] = React.useState(_initialEdges);
 
   const onNodesChange = (nodesArray) => {
