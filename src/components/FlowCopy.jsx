@@ -19,74 +19,102 @@ const Container = styled.div`
 `;
 
 const FlowCopy = () => {
-  const allNodes = [
-    { id: "1", data: { label: "A" }, position: { x: 300, y: 0 } },
+  //
+  const allNodesClone = [
+    { id: "1", data: { label: "Chart" }, position: { x: 300, y: 0 } },
     {
       id: "2",
-      data: { label: "B" },
+      data: { label: "Assets (ASST)" },
       position: { x: 0, y: 100 },
       subChildren: [
         {
-          id: "6",
-          data: { label: "B1" },
+          id: "7",
+          data: { label: "Test asset primum ledger 120 (ASSTOTFR)" },
           position: { x: 0, y: 180 },
-          subChildrenTwo: [
-            { id: "18", data: { label: "B11" }, position: { x: 0, y: 250 } },
-            { id: "19", data: { label: "B12" }, position: { x: 160, y: 250 } },
-            { id: "20", data: { label: "B13" }, position: { x: 320, y: 250 } },
-          ],
+          subChildrenTwo: [],
         },
-        { id: "7", data: { label: "B2" }, position: { x: 160, y: 180 } },
-        { id: "8", data: { label: "B3" }, position: { x: 320, y: 180 } },
+        {
+          id: "8",
+          data: { label: "Recurrent asset primum (ASSTOTFR)" },
+          position: { x: 160, y: 180 },
+          subChildrenTwo: [],
+        },
+        {
+          id: "9",
+          data: { label: "New asset parent 99 (ASSTOTFR)" },
+          position: { x: 320, y: 180 },
+          subChildrenTwo: [],
+        },
+        {
+          id: "10",
+          data: { label: "Test revenue primum ledger 176 (ASSTOTFR)" },
+          position: { x: 480, y: 180 },
+          subChildrenTwo: [],
+        },
+        {
+          id: "11",
+          data: { label: "Parent expense (ASSTOTFR)" },
+          position: { x: 640, y: 180 },
+          subChildrenTwo: [],
+        },
       ],
     },
     {
       id: "3",
-      data: { label: "C" },
+      data: { label: "Liabilities" },
       position: { x: 160, y: 100 },
       subChildren: [
         {
-          id: "9",
-          data: { label: "C1" },
+          id: "12",
+          data: { label: "Test Liability Primum Ledger 1 (LIAMUR)" },
           position: { x: 0, y: 180 },
-          subChildrenTwo: [
-            { id: "21", data: { label: "C11" }, position: { x: 0, y: 250 } },
-            { id: "22", data: { label: "C12" }, position: { x: 160, y: 250 } },
-            { id: "23", data: { label: "C13" }, position: { x: 320, y: 250 } },
-          ],
+          subChildrenTwo: [],
         },
-        { id: "10", data: { label: "C2" }, position: { x: 160, y: 180 } },
-        { id: "11", data: { label: "C3" }, position: { x: 320, y: 180 } },
+        {
+          id: "13",
+          data: { label: "New Liability Parent	(LIANLP)" },
+          position: { x: 160, y: 180 },
+          subChildrenTwo: [],
+        },
       ],
     },
     {
       id: "4",
-      data: { label: "D" },
+      data: { label: "Equities" },
       position: { x: 320, y: 100 },
       subChildren: [
         {
-          id: "12",
-          data: { label: "D1" },
+          id: "14",
+          data: { label: "Test Equity Primum Ledger 1	(EQT0VTR)" },
           position: { x: 0, y: 180 },
-          subChildrenTwo: [
-            { id: "24", data: { label: "D11" }, position: { x: 0, y: 250 } },
-            { id: "25", data: { label: "D12" }, position: { x: 160, y: 250 } },
-            { id: "26", data: { label: "D13" }, position: { x: 320, y: 250 } },
-          ],
+          subChildrenTwo: [],
         },
-        { id: "13", data: { label: "D2" }, position: { x: 160, y: 180 } },
-        { id: "14", data: { label: "D3" }, position: { x: 320, y: 180 } },
       ],
     },
     {
       id: "5",
-      data: { label: "E" },
+      data: { label: "Revenue" },
       position: { x: 480, y: 100 },
-
       subChildren: [
-        { id: "15", data: { label: "E1" }, position: { x: 0, y: 180 } },
-        { id: "16", data: { label: "E2" }, position: { x: 160, y: 180 } },
-        { id: "17", data: { label: "E3" }, position: { x: 320, y: 180 } },
+        {
+          id: "15",
+          data: { label: "Gross Revenue	(REV0GRR)" },
+          position: { x: 0, y: 180 },
+          subChildrenTwo: [],
+        },
+      ],
+    },
+    {
+      id: "6",
+      data: { label: "Expense" },
+      position: { x: 640, y: 100 },
+      subChildren: [
+        {
+          id: "16",
+          data: { label: "Test Expense Primum Ledger 1 (EXP0BYT)" },
+          position: { x: 0, y: 180 },
+          subChildrenTwo: [],
+        },
       ],
     },
   ];
@@ -96,21 +124,24 @@ const FlowCopy = () => {
     { id: "el-3", source: "1", target: "3" },
     { id: "el-4", source: "1", target: "4" },
     { id: "el-5", source: "1", target: "5" },
-    { id: "el-6", source: "2", target: "6" },
-    { id: "el-7", source: "2", target: "7" },
-    { id: "el-8", source: "2", target: "8" },
-    { id: "el-9", source: "6", target: "18" },
-    { id: "el-10", source: "6", target: "19" },
-    { id: "el-11", source: "6", target: "20" },
+    { id: "el-6", source: "2", target: "7" },
+    { id: "el-7", source: "2", target: "8" },
+    { id: "el-8", source: "2", target: "9" },
+    { id: "el-9", source: "2", target: "10" },
+    { id: "el-10", source: "2", target: "11" },
   ];
 
   // Extract sub-children of B
   const subChildrenOfB =
-    allNodes.find((node) => node.id === "2")?.subChildren || [];
+    allNodesClone.find((node) => node.id === "2")?.subChildren || [];
   const subChildrenTwoOfB1 =
     subChildrenOfB.find((node) => node.id === "6")?.subChildrenTwo || [];
 
-  const _initialNodes = [...allNodes, ...subChildrenOfB, ...subChildrenTwoOfB1];
+  const _initialNodes = [
+    ...allNodesClone,
+    ...subChildrenOfB,
+    ...subChildrenTwoOfB1,
+  ];
 
   const [initialNodes, setInitialNodes] = React.useState(_initialNodes);
   const [initialEdges, setInitialEdges] = React.useState(_initialEdges);
@@ -129,12 +160,12 @@ const FlowCopy = () => {
         const allSubChildrenTwo = getSubChildrenTwo(allSubChildren);
 
         const allNodesAndSubChildren = [
-          ...allNodes,
+          ...allNodesClone,
           ...allSubChildren,
           ...allSubChildrenTwo,
         ];
 
-        const allNodesId = allNodes.map((node) => ({
+        const allNodesId = allNodesClone.map((node) => ({
           id: node.id,
           data: node.data,
         }));
